@@ -5,7 +5,7 @@ function Banner() {
     return (
         <div>
             <div className='relative'>
-                <div data-aos="zoom-in" data-aos-duration="2000">
+                <div data-aos="zoom-in" data-aos-duration="2000" className='py-4 px-2 md:py-0'>
                     <img src={image} className='lg:h-[650px] mx-auto brightness-110' alt="" />
                 </div>
                 <div className='absolute left-20 top-32 lg:block hidden'>

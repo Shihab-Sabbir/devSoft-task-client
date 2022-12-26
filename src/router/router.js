@@ -9,10 +9,10 @@ import Layout from "../Layout/Layout";
 import Errorpages from "../pages/ErrorPage/ErrorPage"
 import DashBoardLayout from "../Layout/DashBoardLayout"
 import ProtectedRoute from "./ProtectedRoute";
-import MyOrders from "../pages/Buyer/MyOrders";
 import DashboardWellcome from "../pages/DashboardWellcome/DashboardWellcome";
 import AdminRoute from "./AdminRoute";
 import AdminPanel from "../pages/admin/AdminPanel";
+import MyBooking from "../pages/User/MyBooking";
 export const router = createBrowserRouter([
     {
         path: '/', errorElement: <Errorpages />, element: <Layout />, children: [
@@ -27,8 +27,8 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard', errorElement: <Errorpages />, element: <ProtectedRoute><DashBoardLayout /></ProtectedRoute>, children: [
             { path: '/dashboard', element: <DashboardWellcome /> },
-            { path: '/dashboard/my-orders', element: <MyOrders /> },
-            { path: '/dashboard/all-sellers', element: <AdminRoute><AdminPanel /></AdminRoute> }
+            { path: '/dashboard/my-booking', element: <MyBooking /> },
+            { path: '/dashboard/all-bookings', element: <AdminRoute><AdminPanel /></AdminRoute> }
         ]
     }
 ])

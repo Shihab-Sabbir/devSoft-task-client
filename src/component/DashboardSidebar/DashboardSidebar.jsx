@@ -35,43 +35,20 @@ function DashboardSidebar({ toggle }) {
                         {dbUser?.role === 'admin' && <div className="space-y-5">
                             <h2 className="text-sm font-semibold tracking-widest uppercase text-black dark:text-gray-400">Admin Menu</h2>
                             <div className="flex flex-col space-y-4 justify-center items-center">
-                                <NavLink to="/dashboard/all-buyers"
+                                <NavLink to="/dashboard/all-bookings"
                                     end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>All Buyers</NavLink>
-                                <NavLink to="/dashboard/all-sellers"
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>All Sellers</NavLink>
-                                <NavLink to="/dashboard/reports"
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Reports</NavLink>
+                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Manage Booking</NavLink>
                                 <NavLink to="/logout"
                                     end
                                     className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Logout</NavLink>
                             </div>
                         </div>}
-                        {dbUser?.role === 'buyer' && <div className="space-y-5">
-                            <h2 className="text-sm font-semibold tracking-widest uppercase text-black dark:text-gray-400 text-center">Buyer Menu</h2>
+                        {dbUser?.role === 'user' && <div className="space-y-5">
+                            <h2 className="text-sm font-semibold tracking-widest uppercase text-black dark:text-gray-400 text-center">User Menu</h2>
                             <div className="flex flex-col space-y-4 justify-center items-center">
-                                <NavLink to="/dashboard/my-orders"
+                                <NavLink to="/dashboard/my-booking"
                                     end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>My Orders</NavLink>
-                                <NavLink to="/dashboard/my-wishlist"
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Wishlist</NavLink>
-                                <NavLink to="/logout"
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Logout</NavLink>
-                            </div>
-                        </div>}
-                        {dbUser?.role === 'seller' && <div className="space-y-5">
-                            <h2 className="text-sm font-semibold tracking-widest uppercase text-black dark:text-gray-400">User Menu</h2>
-                            <div className="flex flex-col space-y-4 justify-center items-center">
-                                <NavLink to={`/dashboard/my-products`}
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>My Products</NavLink>
-                                <NavLink to="/dashboard/add-product"
-                                    end
-                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Add Product</NavLink>
+                                    className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>My Booking</NavLink>
                                 <NavLink to="/logout"
                                     end
                                     className={({ isActive }) => (isActive ? "active-class" : "non-active-class dark:non-active-class")}>Logout</NavLink>

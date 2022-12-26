@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import DataLoadingSpinner from "../../component/DataLoadingSpinner/DataLoadingSpinner";
 import { logOut } from "../../Utility/logout";
-function MyOrders() {
+function MyBooking() {
     const [bookings, setBookings] = useState([]);
     const [slots, setSlots] = useState([]);
     const [dataLoading, setDataLoading] = useState(false);
@@ -65,11 +65,6 @@ function MyOrders() {
                         setDataLoading(true);
                         fetch(`http://localhost:5000/cancel-booking/${id}`, {
                             method: "PUT",
-                            headers: {
-                                authorization: `Bearer ${localStorage.getItem(
-                                    "job-task-token"
-                                )}`,
-                            },
                         })
                             .then((res) => {
                                 console.log(res);
@@ -112,12 +107,6 @@ function MyOrders() {
                         setDataLoading(true);
                         fetch(`http://localhost:5000/edit-booking/${id}`, {
                             method: "PUT",
-                            headers: {
-                                authorization: `Bearer ${localStorage.getItem(
-                                    "job-task-token"
-                                )}`,
-                                'content-type': 'application/json'
-                            },
                             body: JSON.stringify({ newSlot, user })
                         })
                             .then((res) => {
@@ -263,4 +252,4 @@ function MyOrders() {
     );
 }
 
-export default MyOrders;
+export default MyBooking;

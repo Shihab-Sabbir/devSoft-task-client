@@ -102,7 +102,7 @@ export default function Header() {
                         </NavLink>
                     </ul>
                     <div className=" flex space-x-5 justify-center items-center pl-2">
-                        <div className='border-2 rounded-md p-1 border-black dark:border-white'>
+                        <div className='border-2 rounded-md p-1 lg:mt-[5px] border-black dark:border-white'>
                             {dark ? <MdOutlineDarkMode className='text-xl text-white  cursor-pointer' title='click to light mode' onClick={handleDark} /> : <MdOutlineLightMode className='text-xl cursor-pointer text-black' title='click to light mode' onClick={handleDark} />}
                         </div>
                     </div>
