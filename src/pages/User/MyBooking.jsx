@@ -21,7 +21,7 @@ function MyBooking() {
     useEffect(() => {
         setDataLoading(true);
         axios
-            .get(`http://localhost:5000/my-events/${user?.uid}`)
+            .get(`https://dev-soft-task.vercel.app/my-events/${user?.uid}`)
             .then((res) => {
                 setBookings(res.data);
                 setDataLoading(false);
@@ -35,7 +35,7 @@ function MyBooking() {
             });
 
         axios
-            .get(`http://localhost:5000/all-events`)
+            .get(`https://dev-soft-task.vercel.app/all-events`)
             .then((res) => {
                 setSlots(res.data.filter((slot) => slot.booked === false));
                 setDataLoading(false);
@@ -63,7 +63,7 @@ function MyBooking() {
                     label: "Yes",
                     onClick: () => {
                         setDataLoading(true);
-                        fetch(`http://localhost:5000/cancel-booking/${id}`, {
+                        fetch(`https://dev-soft-task.vercel.app/cancel-booking/${id}`, {
                             method: "PUT",
                         })
                             .then((res) => {
@@ -105,7 +105,7 @@ function MyBooking() {
                     label: "Yes",
                     onClick: () => {
                         setDataLoading(true);
-                        fetch(`http://localhost:5000/edit-booking/${id}`, {
+                        fetch(`https://dev-soft-task.vercel.app/edit-booking/${id}`, {
                             method: "PUT",
                             body: JSON.stringify({ newSlot, user })
                         })

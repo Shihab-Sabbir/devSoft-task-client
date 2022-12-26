@@ -10,9 +10,8 @@ function UserContext({ children }) {
     const [loading, setLoading] = useState(true);
     const [updateState, setUpdateState] = useState(false);
     const [dbUser, setDbUser] = useState({});
-    const [search, setSearch] = useState('');
     const auth = getAuth(app);
-    const userinfo = { dark, setDark, user, setUser, loading, setLoading, updateState, setUpdateState, handleSearch, search, auth, dbUser, setDbUser };
+    const userinfo = { dark, setDark, user, setUser, loading, setLoading, updateState, setUpdateState, auth, dbUser, setDbUser };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -25,7 +24,7 @@ function UserContext({ children }) {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.uid}`)
+        fetch(`https://dev-soft-task.vercel.app/user/${user?.uid}`)
             .then(res => res.json())
             .then(data => {
                 setDbUser(data)
@@ -33,11 +32,6 @@ function UserContext({ children }) {
             .catch(err => { console.log(err) })
     }, [user])
 
-    function handleSearch(e) {
-        e.preventDefault();
-        setSearch(e.target.search.value);
-        setUpdateState(!updateState)
-    }
 
     return (
         <AuthContext.Provider value={userinfo}>

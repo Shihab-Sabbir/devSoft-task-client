@@ -4,7 +4,6 @@ import { MdOutlineLightMode, MdOutlineDarkMode } from 'react-icons/md';
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../UserContext/UserContext";
 import { useContext } from "react";
-import SearchModal from "../../component/SearchModal/SearchModal";
 import { AiOutlineMenu } from 'react-icons/ai';
 import './Header.css'
 export default function Header() {
@@ -12,10 +11,10 @@ export default function Header() {
     const [style, setStyle] = useState(arr);
     const [dropDown, setDropDown] = useState(true);
     const [text, setText] = useState("");
-    const { dark, setDark, user, handleSearch } = useContext(AuthContext);
+    const { dark, setDark, user } = useContext(AuthContext);
     const navigate = useNavigate();
     function handleDark() {
-        localStorage.setItem('your-car-theme', JSON.stringify(!dark));
+        localStorage.setItem('ams-theme', JSON.stringify(!dark));
         setDark(!dark);
     }
 

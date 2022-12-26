@@ -8,7 +8,7 @@ function DashboardSidebar({ toggle }) {
     const { dark, setDark, user, dbUser, setDbUser } = useContext(AuthContext);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.uid}`)
+        fetch(`https://dev-soft-task.vercel.app/user/${user?.uid}`)
             .then(res => res.json())
             .then(data => {
                 setDbUser(data)
@@ -17,7 +17,7 @@ function DashboardSidebar({ toggle }) {
     }, [user])
 
     function handleDark() {
-        localStorage.setItem('your-car-theme', JSON.stringify(!dark));
+        localStorage.setItem('ams-theme', JSON.stringify(!dark));
         setDark(!dark);
     }
 

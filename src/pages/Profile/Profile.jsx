@@ -5,6 +5,11 @@ import loadingAnim from '../../asset/loading.gif'
 import { Helmet } from "react-helmet";
 function Profile() {
     const { user, loading, dark } = useContext(AuthContext);
+    if (user === null) {
+        return <div className='flex justify-center items-center lg:items-start pt-3 lg:pt-8 min-h-screen '>
+            <p className='text-center'>No User Loggedin</p>
+        </div>
+    }
     return (
         <div className='flex justify-center items-center lg:items-start pt-3 lg:pt-8 min-h-screen dark:bg-slate-500'>
             <Helmet>

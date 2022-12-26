@@ -20,7 +20,7 @@ function AdminPanel() {
   useEffect(() => {
     setDataLoading(true);
     axios
-      .get(`http://localhost:5000/all-events`)
+      .get(`https://dev-soft-task.vercel.app/all-events`)
       .then((res) => {
         setBookings(res.data);
         setDataLoading(false);
@@ -47,7 +47,7 @@ function AdminPanel() {
           label: "Yes",
           onClick: () => {
             setDataLoading(true);
-            fetch(`http://localhost:5000/update-event/${id}`, {
+            fetch(`https://dev-soft-task.vercel.app/update-event/${id}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",
@@ -129,14 +129,14 @@ function AdminPanel() {
                   key={booking._id}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-center p-1"
                 >
-                  <td className="flex justify-center font-medium cursor-pointer text-red-600 dark:text-red-500 hover:underline">
+                  <td className="flex justify-center items-center font-medium cursor-pointer text-red-600 dark:text-red-500 hover:underline">
                     {booking.status === "canceled by user" ? (
                       <p className="uppercase text-xs pt-4">canceled by user</p>
                     ) : (
                       <select
                         name=""
                         id=""
-                        className="w-fit text-center text-xs uppercase"
+                        className="w-fit text-center text-xs uppercase justify-center items-center mt-4 lg:mt-2 ml-2"
                         onChange={(e) => handleStatus(e, booking.start)}
                       >
                         <option

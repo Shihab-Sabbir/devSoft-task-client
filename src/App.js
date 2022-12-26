@@ -9,7 +9,7 @@ function App() {
   const { dark, setDark } = useContext(AuthContext);
 
   useEffect(() => {
-    const isDark = JSON.parse(localStorage.getItem('your-car-theme'));
+    const isDark = JSON.parse(localStorage.getItem('ams-theme'));
     if (isDark !== null) {
       setDark(isDark);
     }

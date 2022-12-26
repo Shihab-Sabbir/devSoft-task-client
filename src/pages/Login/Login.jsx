@@ -22,7 +22,7 @@ function Login() {
     window.scrollTo(0, 0)
     const userRole = (userData) => {
         const user = { ...userData, role: 'user' }
-        axios.post('http://localhost:5000/register', { user }).then((response) => console.log(response))
+        axios.post('https://dev-soft-task.vercel.app/register', { user }).then((response) => console.log(response))
     }
     if (user?.uid) {
         return navigate('/logout')
@@ -30,7 +30,7 @@ function Login() {
     const jwtToken = (user) => {
         setLoading(true)
         const uid = user?.uid;
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://dev-soft-task.vercel.app/jwt', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

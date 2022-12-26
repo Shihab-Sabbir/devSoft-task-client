@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Blooking from "../pages/Booking/Blooking";
+import Booking from "../pages/Booking/Booking";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Logout from "../pages/Logout/Logout";
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             { path: '/logout', element: <Logout /> },
             { path: '/register', element: <Register /> },
             { path: '/profile', element: <Profile /> },
-            { path: '/booking', element: <Blooking /> },
+            { path: '/booking', element: <Booking /> },
         ]
     },
     {

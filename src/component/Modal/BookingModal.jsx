@@ -31,7 +31,7 @@ export default function BookingModal({ setIsChecked, date, dbUser, updateState, 
         }
         setDataLoading(true)
         axios
-            .post("http://localhost:5000/add-event", {
+            .post("https://dev-soft-task.vercel.app/add-event", {
                 title,
                 start: new Date(`${date} ${time} GMT+0600 (East Kazakhstan Time)`),
             })
@@ -60,9 +60,9 @@ export default function BookingModal({ setIsChecked, date, dbUser, updateState, 
                     ✕
                 </label>
                 <form action="" onSubmit={(e) => handleForm(e)} className='flex flex-col mt-8'>
-                    <input type="time" name="time" placeholder="Time Slot" />
-                    <input type="text" name="SelectedDate" value={date} />
-                    <input type="text" name="title" />
+                    <input required type="time" name="time" placeholder="Time Slot" />
+                    <input required type="text" name="SelectedDate" value={date} />
+                    <input required type="text" name="title" />
                     <input type="submit" value="submit" className="my-2 btn bg-amber-300 text-black hover:text-white" />
                 </form>
             </div>

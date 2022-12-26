@@ -8,9 +8,9 @@ import { toast } from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
 import BookingModal from "../../component/Modal/BookingModal";
 import DataLoadingSpinner from "../../component/DataLoadingSpinner/DataLoadingSpinner";
-import image from '../../asset/images/banner.png'
+import image from '../../asset/images/banner.gif'
 
-function Blooking() {
+function Booking() {
     const [isChecked, setIsChecked] = useState(false);
     const [date, setDate] = useState(null);
     const [events, setEvents] = useState([]);
@@ -21,7 +21,7 @@ function Blooking() {
     useEffect(() => {
         setDataLoading(true)
         axios
-            .get("http://localhost:5000/all-events")
+            .get("https://dev-soft-task.vercel.app/all-events")
             .then((res) => { setEvents(res.data); setDataLoading(false) })
             .catch(err => { console.log(err); setDataLoading(false) })
     }, [updateState]);
@@ -54,7 +54,7 @@ function Blooking() {
                         onClick: () => {
                             setDataLoading(true)
                             axios
-                                .put("http://localhost:5000/book-event", { data, user })
+                                .put("https://dev-soft-task.vercel.app/book-event", { data, user })
                                 .then((res) => {
                                     { toast.success('Booked successfully'); setDataLoading(false); setUpdateState(!updateState) }
                                 })
@@ -85,7 +85,7 @@ function Blooking() {
                     <br />
                     <b>{booked ? "Slot booked" : "Not booked"}</b>
                 </div>
-               
+
             </div>
         );
     }
@@ -115,11 +115,11 @@ function Blooking() {
                 className="modal-toggle"
             />
             <BookingModal setIsChecked={setIsChecked} date={date} dbUser={dbUser} setUpdateState={setUpdateState} updateState={updateState}></BookingModal>
-            
+
         </div>
     );
 }
 
-export default Blooking;
+export default Booking;
 
 
